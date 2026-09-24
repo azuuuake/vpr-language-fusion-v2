@@ -1,0 +1,10 @@
+cff-version: 1.2.0
+message: "If you use this repository, please cite the accompanying paper."
+title: "Precision-Weighted Visual-Language Reranking for Visual Place Recognition: A Controlled Evaluation"
+type: software
+authors:
+  - family-names: "Chowdhury"
+    given-names: "Azwad Raza"
+repository-code: "https://github.com/azuuuake/vpr-language-fusion"
+version: "v1"
+date-released: "2026-09-24"

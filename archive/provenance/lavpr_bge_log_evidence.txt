@@ -1,0 +1,68 @@
+/content/LaVPR
+./train.py:34:    parser.add_argument("--fusion_type", type=str, default='dynamic_weighting', help="type of fusion to use: mlp, add, dynamic_weighting, fixed_weighting")
+./model/LaVPR.py:139:            elif self.fusion_type == 'fixed_weighting':
+./model/LaVPR.py:299:            elif self.fusion_type == 'fixed_weighting':
+./model/LaVPR.py:527:            elif self.fusion_type == 'dynamic_weighting' or self.fusion_type == 'fixed_weighting' or self.fusion_type == 'transformer':
+grep: ./model/__pycache__/LaVPR.cpython-312.pyc: binary file matches
+./logs/amstertime_lavpr_fixed_b2_cpu/2026-06-07_00-38-56/info.log:1:2026-06-07 00:38:56 eval_vpr.py --database_folder /content/VPR-datasets-downloader/datasets/amstertime/images/test/database --queries_folder /content/VPR-datasets-downloader/datasets/amstertime/images/test/queries --image_root /content/VPR-datasets-downloader/datasets/amstertime/images/test --queries_csv datasets/amstertime_descriptions.csv --fusion_type fixed_weighting --vpr_model_name eigenplaces --vpr_model_backbone ResNet50 --vpr_dim 2048 --text_model_name BAAI/bge-large-en-v1.5 --text_dim 1024 --alpha_vision 0.5 --device cpu --image_size 320 --batch_size 2 --num_workers 2 --recall_values 1 5 10 --save_descriptors --log_dir amstertime_lavpr_fixed_b2_cpu
+./logs/amstertime_lavpr_fixed_b2_cpu/2026-06-07_00-38-56/info.log:2:2026-06-07 00:38:56 Arguments: Namespace(positive_dist_threshold=25, vpr_dim=2048, text_dim=1024, database_folder='/content/VPR-datasets-downloader/datasets/amstertime/images/test/database', queries_folder='/content/VPR-datasets-downloader/datasets/amstertime/images/test/queries', image_root='/content/VPR-datasets-downloader/datasets/amstertime/images/test', queries_csv='datasets/amstertime_descriptions.csv', num_workers=2, batch_size=2, log_dir='amstertime_lavpr_fixed_b2_cpu', descriptor_dir='descriptors', device='cpu', recall_values=[1, 5, 10], no_labels=False, num_preds_to_save=0, save_only_wrong_preds=False, image_size=320, save_descriptors=True, gpu='0', model_name='', vpr_model_name='eigenplaces', vpr_model_backbone='ResNet50', text_model_name='BAAI/bge-large-en-v1.5', lora_path=None, is_dual_encoder=0, dual_encoder_fusion='cat', encode_mode='both', fusion_type='fixed_weighting', is_normalize=0, max_results_reranking=25000, alpha_vision=0.5, is_trainable_text_encoder=0, is_encode_image=1, is_encode_text=1, rerank_by_scores=1, is_pca=0, embeds_dim=512, is_text_pooling=0, is_image_pooling=0, cross_modal=0, rerank_by_text_or_image=0, max_rerank=100, bfloat16=0, use_labels=True)
+./logs/amstertime_lavpr_fixed_b2_cpu/2026-06-07_00-38-56/debug.log:1:2026-06-07 00:38:56.543 | INFO     | __main__:main:184 - eval_vpr.py --database_folder /content/VPR-datasets-downloader/datasets/amstertime/images/test/database --queries_folder /content/VPR-datasets-downloader/datasets/amstertime/images/test/queries --image_root /content/VPR-datasets-downloader/datasets/amstertime/images/test --queries_csv datasets/amstertime_descriptions.csv --fusion_type fixed_weighting --vpr_model_name eigenplaces --vpr_model_backbone ResNet50 --vpr_dim 2048 --text_model_name BAAI/bge-large-en-v1.5 --text_dim 1024 --alpha_vision 0.5 --device cpu --image_size 320 --batch_size 2 --num_workers 2 --recall_values 1 5 10 --save_descriptors --log_dir amstertime_lavpr_fixed_b2_cpu
+./logs/amstertime_lavpr_fixed_b2_cpu/2026-06-07_00-38-56/debug.log:2:2026-06-07 00:38:56.543 | INFO     | __main__:main:185 - Arguments: Namespace(positive_dist_threshold=25, vpr_dim=2048, text_dim=1024, database_folder='/content/VPR-datasets-downloader/datasets/amstertime/images/test/database', queries_folder='/content/VPR-datasets-downloader/datasets/amstertime/images/test/queries', image_root='/content/VPR-datasets-downloader/datasets/amstertime/images/test', queries_csv='datasets/amstertime_descriptions.csv', num_workers=2, batch_size=2, log_dir='amstertime_lavpr_fixed_b2_cpu', descriptor_dir='descriptors', device='cpu', recall_values=[1, 5, 10], no_labels=False, num_preds_to_save=0, save_only_wrong_preds=False, image_size=320, save_descriptors=True, gpu='0', model_name='', vpr_model_name='eigenplaces', vpr_model_backbone='ResNet50', text_model_name='BAAI/bge-large-en-v1.5', lora_path=None, is_dual_encoder=0, dual_encoder_fusion='cat', encode_mode='both', fusion_type='fixed_weighting', is_normalize=0, max_results_reranking=25000, alpha_vision=0.5, is_trainable_text_encoder=0, is_encode_image=1, is_encode_text=1, rerank_by_scores=1, is_pca=0, embeds_dim=512, is_text_pooling=0, is_image_pooling=0, cross_modal=0, rerank_by_text_or_image=0, max_rerank=100, bfloat16=0, use_labels=True)
+./eval_vpr.py:133:        elif args.fusion_type == 'dynamic_weighting' or args.fusion_type == 'fixed_weighting' or args.fusion_type == 'text_adapter' or args.fusion_type == 'transformer':
+./eval_vpr.py:138:            if args.fusion_type == 'fixed_weighting':
+./eval_vpr.py:275:    elif (args.is_dual_encoder and args.dual_encoder_fusion=='each') or args.fusion_type=='dynamic_weighting' or args.fusion_type=='fixed_weighting' or args.fusion_type=='text_adapter' or args.fusion_type=='transformer' or args.rerank_by_text_or_image:         
+grep: ./__pycache__/eval_parser.cpython-312.pyc: binary file matches
+./eval_parser.py:92:    parser.add_argument("--fusion_type", type=str, default='none', help="type of fusion to use: mlp, add, transformer, dynamic_weighting, fixed_weighting, text_adapter")
+grep: model/__pycache__/LaVPR.cpython-312.pyc: binary file matches
+grep: model/__pycache__/LaVPR_wrapper.cpython-312.pyc: binary file matches
+grep: model/__pycache__/blip_model.cpython-312.pyc: binary file matches
+model/LaVPR.py:32:                vpr_model_name='mixvpr',
+model/LaVPR.py:50:                text_model_name='BAAI/bge-large-en-v1.5',
+model/LaVPR.py:69:        self.vpr_model_name = vpr_model_name
+model/LaVPR.py:72:        self.text_model_name = text_model_name
+model/LaVPR.py:109:        if 'blip' in vpr_model_name or 'clip' in vpr_model_name:
+model/LaVPR.py:147:        if is_encode_image and ('blip' not in vpr_model_name and 'clip' not in vpr_model_name and 'siglip' not in vpr_model_name and 'eva' not in vpr_model_name):                  
+model/LaVPR.py:148:            self.vpr_encoder = vpr_models.get_model(vpr_model_name, vpr_model_backbone, vpr_encoder_dim)                      
+model/LaVPR.py:156:            if 'blip' in vpr_model_name:
+model/LaVPR.py:157:                self.text_encoder = BlipForImageTextRetrievalWrapper.from_pretrained(vpr_model_name)
+model/LaVPR.py:158:                self.processor = BlipProcessor.from_pretrained(vpr_model_name)
+model/LaVPR.py:159:            elif 'clip' in vpr_model_name or 'siglip' in vpr_model_name:
+model/LaVPR.py:161:                if 'siglip' in vpr_model_name:
+model/LaVPR.py:163:                self.text_encoder = AutoModel.from_pretrained(vpr_model_name)
+model/LaVPR.py:164:                self.processor = AutoProcessor.from_pretrained(vpr_model_name)
+model/LaVPR.py:165:            elif 'eva' in vpr_model_name:
+model/LaVPR.py:166:                self.text_encoder, _, self.processor = open_clip.create_model_and_transforms(vpr_model_name.upper(), pretrained='merged2b_s8b_b131k')#'EVA02-B-16'
+model/LaVPR.py:167:                self.tokenizer = open_clip.get_tokenizer(vpr_model_name)                
+model/LaVPR.py:169:                self.tokenizer = AutoTokenizer.from_pretrained(text_model_name)  
+model/LaVPR.py:170:                self.text_encoder = AutoModel.from_pretrained(text_model_name, attn_implementation="sdpa")        
+model/LaVPR.py:215:            if 'blip' in self.vpr_model_name:
+model/LaVPR.py:218:            elif 'clip' in self.vpr_model_name or 'siglip' in self.vpr_model_name:
+model/LaVPR.py:220:            elif 'eva' in self.vpr_model_name:            
+model/LaVPR.py:225:                    if 'dinov2' in self.vpr_model_name:
+model/LaVPR.py:235:            if 'blip' in self.vpr_model_name:
+model/LaVPR.py:241:            elif 'clip' in self.vpr_model_name or 'siglip' in self.vpr_model_name:
+model/LaVPR.py:248:            elif 'eva' in self.vpr_model_name:
+model/blip_model.py:223:    model_name = 'Salesforce/blip-itm-base-coco'    
+model/blip_model.py:225:    visual_model = BlipForImageTextRetrievalVision.from_pretrained(model_name).to(device)
+model/blip_model.py:226:    text_model = BlipForImageTextRetrievalText.from_pretrained(model_name).to(device)
+model/blip_model.py:227:    processor = BlipProcessor.from_pretrained(model_name)       
+model/LaVPR_wrapper.py:21:        self.model_name = args.model_name
+model/LaVPR_wrapper.py:22:        self.vpr_model_name = args.vpr_model_name
+model/LaVPR_wrapper.py:23:        self.text_model_name = args.text_model_name
+model/LaVPR_wrapper.py:27:        if 'blip' in self.vpr_model_name or 'clip' in self.vpr_model_name:
+model/LaVPR_wrapper.py:32:            if 'blip' in self.vpr_model_name:
+model/LaVPR_wrapper.py:33:                self.vpr_encoder = BlipForImageTextRetrievalWrapper.from_pretrained(self.vpr_model_name)
+model/LaVPR_wrapper.py:34:                self.processor = BlipProcessor.from_pretrained(self.vpr_model_name)
+model/LaVPR_wrapper.py:36:            if 'clip' in self.vpr_model_name or 'siglip' in self.vpr_model_name:
+model/LaVPR_wrapper.py:37:                self.vpr_encoder = AutoModel.from_pretrained(self.vpr_model_name)
+model/LaVPR_wrapper.py:38:                self.processor = AutoProcessor.from_pretrained(self.vpr_model_name)
+model/LaVPR_wrapper.py:40:            if 'siglip' in self.vpr_model_name:
+model/LaVPR_wrapper.py:42:            if 'eva' in self.vpr_model_name.lower():
+model/LaVPR_wrapper.py:43:                self.vpr_encoder, _, self.processor = open_clip.create_model_and_transforms(self.vpr_model_name, pretrained='merged2b_s8b_b131k')#'EVA02-B-16'
+model/LaVPR_wrapper.py:44:                self.tokenizer = open_clip.get_tokenizer(self.vpr_model_name)
+model/LaVPR_wrapper.py:50:            if 'bge' in self.text_model_name:
+model/LaVPR_wrapper.py:51:                self.tokenizer = AutoTokenizer.from_pretrained(self.text_model_name)  
+model/LaVPR_wrapper.py:52:                self.text_encoder = AutoModel.from_pretrained(self.text_model_name).to(args.device)
+model/LaVPR_wrapper.py:55:                self.text_encoder = SentenceTransformer(self.text_model_name, model_kwargs={"attn_implementation": "sdpa"}).to(args.device)    
+model/LaVPR_wrapper.py:57:            self.vpr_encoder = vpr_models.get_model(args.vpr_model_name.lower(), args.vpr_model_backbone, self.vpr_encoder_dim)
+model/LaVPR_wrapper.py:72:                vpr_model_name=args.vpr_model_name.lower(),

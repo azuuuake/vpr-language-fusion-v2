@@ -1,0 +1,115 @@
+{
+  "paper_title": "Precision-Weighted Visual-Language Reranking for Visual Place Recognition: A Controlled Evaluation",
+  "random_seed": 42,
+  "bootstrap_resamples": 5000,
+  "epsilon": 1e-09,
+  "lambda": 0.5,
+  "K_u": 10,
+  "MSLS": {
+    "queries": 740,
+    "database": 18871,
+    "calibration_queries": 222,
+    "heldout_queries": 518,
+    "split_seed": 42
+  },
+  "AmsterTime": {
+    "queries": 1231
+  },
+  "Nordland_aligned": {
+    "queries": 400,
+    "positive_window_sampled_frames": 25
+  },
+  "text_encoder": {
+    "checkpoint": "BAAI/bge-large-en-v1.5",
+    "dimension": 1024,
+    "similarity": "cosine over normalized embeddings"
+  },
+  "caption_provenance": {
+    "MSLS": "LaVPR-provided descriptions",
+    "AmsterTime": "LaVPR-provided descriptions",
+    "Nordland": "offline Salesforce/blip-image-captioning-base captions for both summer database and winter queries"
+  },
+  "EigenPlaces": {
+    "backbone": "ResNet50",
+    "descriptor_dim": 2048,
+    "image_size": "320x320",
+    "PWF": {
+      "rho": 3.0,
+      "M_c": 10
+    },
+    "constant_alpha": 0.84,
+    "SG": {
+      "tau": 1.0,
+      "theta": 0.085
+    }
+  },
+  "CosPlace": {
+    "backbone": "ResNet18",
+    "descriptor_dim": 512,
+    "image_size": "320x320",
+    "PWF": {
+      "rho": 8.0,
+      "M_c": 10
+    },
+    "constant_alpha": 0.63,
+    "SG": {
+      "tau": 3.0,
+      "theta": 0.045
+    }
+  },
+  "search_grids": {
+    "rho": [
+      1,
+      1.5,
+      2,
+      3,
+      4,
+      6,
+      8,
+      10,
+      12,
+      16,
+      20,
+      30
+    ],
+    "M_c": [
+      10,
+      20,
+      50,
+      100
+    ],
+    "constant_alpha": {
+      "start": 0.0,
+      "stop": 1.0,
+      "step": 0.01
+    },
+    "SG_tau": [
+      0.25,
+      0.5,
+      0.75,
+      1,
+      1.5,
+      2,
+      3,
+      4
+    ],
+    "SG_theta": {
+      "start": 0.0,
+      "stop": 0.12,
+      "step": 0.005
+    }
+  },
+  "tie_breaks": {
+    "PWF": "max calibration R@1; then smaller M_c; then smaller rho",
+    "constant": "max calibration R@1; then larger alpha",
+    "SG": "max calibration R@1; then larger theta; then tau closest to 1"
+  },
+  "inferential_families": {
+    "EP_original_main": 27,
+    "EP_original_component": 21,
+    "EP_original_conditional_LU": 6,
+    "EP_reviewer_fair_controls": 12,
+    "CP_reviewer_controls": 18,
+    "CP_reviewer_LU_increment": 6
+  }
+}
