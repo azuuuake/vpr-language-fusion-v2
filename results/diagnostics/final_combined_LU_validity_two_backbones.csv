@@ -1,6 +1,6 @@
 backbone,dataset,AUROC,CI_low,CI_high
 EigenPlaces,AmsterTime,0.642,0.602,0.676
-EigenPlaces,MSLS held-out,0.566,0.513,0.62
+EigenPlaces,MSLS held-out,0.565494,0.513196,0.617625
 EigenPlaces,Nordland-aligned,0.541,0.485,0.598
 CosPlace,AmsterTime,0.662419,0.624162,0.697888
 CosPlace,MSLS held-out,0.565706,0.515571,0.618152
