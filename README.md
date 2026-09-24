@@ -7,7 +7,7 @@ Its purpose is using for verification: The menuscript is self-contained; this re
 ## Start here
 
 1. **Evidence map:** [`EVIDENCE.md`](EVIDENCE.md)
-2. **Fast numerical audit:** [`scripts/verification.py`]
+2. **Fast numerical audit:** `scripts/verification.py`
 3. **Full method/configuration:** [`configs/final_config.json`](configs/final_config.json)
 4. **All six inferential families / 90 tests:** [`results/inferential_families/all_confirmatory_tests_90.csv`](results/inferential_families/all_confirmatory_tests_90.csv)
 5. **Reproduce Table 1 from matrices:** see [`REPRODUCIBILITY.md`](REPRODUCIBILITY.md)
