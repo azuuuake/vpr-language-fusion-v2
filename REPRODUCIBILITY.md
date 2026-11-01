@@ -31,6 +31,31 @@ MSLS is then subset using the frozen 222/518 split from `msls_calibration_split_
 
 Calibration sweeps are stored under `results/calibration/`. The frozen rule is to maximize calibration R@1 using only the 222-query MSLS source split, then apply the method-specific deterministic tie rule in `configs/final_config.json`.
 
+## Calibration-split sensitivity analysis
+
+For the EigenPlaces configuration, calibration robustness was evaluated across
+20 MSLS calibration splits, each containing 30% of the 740 MSLS-val queries.
+The set comprises the primary seed-42 split and 19 alternative splits.
+
+Each split uses the same PWF search grid and deterministic selection rule as
+the primary analysis:
+
+- `rho ∈ {1, 1.5, 2, 3, 4, 6, 8, 10, 12, 16, 20, 30}`
+- `M_c ∈ {10, 20, 50, 100}`
+- maximise calibration R@1
+- break ties by preferring the smaller `M_c`, then the smaller `rho`
+
+The selected configuration is then frozen and evaluated on the corresponding
+MSLS held-out queries and on the full AmsterTime and Nordland-aligned query
+sets.
+
+Run:
+
+```bash
+python scripts/calibration_split_sensitivity_20seeds.py \
+    --data-dir /path/to/locked_matrices
+```
+
 ## Statistical inference
 
 All reported paired bootstrap tests use 5,000 query-level resamples and seed 42. BH-FDR is applied separately within the six inferential families documented in `MULTIPLICITY.md`. The `all_confirmatory_tests_90.csv` file exposes every test, including non-significant rows.
